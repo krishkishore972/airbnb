@@ -1,0 +1,40 @@
+<% layout("layoutss/boilerplate") %>
+<body>
+    <form action="/add" method="post"  novalidate class="needs-validation">
+        <div class="row col-9 offset-2">
+        <div class="mt-1 ">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" name="list[title]" placeholder="Title" class="form-control" id="title" required>
+            <div class="valid-feedback">Looks Good</div>
+            <div class="invalid-feedback">Title is Required</div>
+        </div>
+        <div class="mt-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea name="list[description]" placeholder="Description" cols="30" rows="10" class="form-control" id="description" required></textarea>
+            <div class="valid-feedback">Looks Good</div>
+            <div class="invalid-feedback">Description is Required</div>
+        </div>
+        <div class="row">
+        <div class="mt-3 col-2">
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" name="list[price]" placeholder="Enter price" class="form-control" id="price" required>
+            <div class="valid-feedback">Looks Good</div>
+            <div class="invalid-feedback">Price is Required</div>
+        </div>
+       <div class="mt-3 col-4">
+        <label for="location"class="form-label">Location:</label>
+        <input type="text" name="list[location]" placeholder="enter loction" class="form-control" id="location" required>
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Location is Required</div>
+       </div>
+       <div class="mt-3 col-3">
+        <label for="country" class="form-label">Country:</label>
+        <input type="text" name="list[country]" placeholder="enter country" class="form-control" id="country" required>
+        <div class="valid-feedback">Looks Good</div>
+        <div class="invalid-feedback">Country is Required</div>
+       </div>
+    </div>
+    </div>
+        <button class="btn mt-4 offset-2 mb-5">Add</button>
+    </form>
+</body>

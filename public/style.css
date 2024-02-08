@@ -1,0 +1,109 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.container{
+    flex: 1;
+    margin-top: 5rem;
+}
+.navbar{
+    height: 4rem;
+    background-color: white;
+
+}
+.fa-hotel{
+    color: #fe424d;
+
+}
+.fa-hotel:hover{
+    font-size: 25px;
+}
+.nav-link a{
+    color: #222222 !important;
+}
+
+.footer{
+    display: flex;
+   /* flex-direction: column; */
+   flex-wrap: wrap;
+   gap: 10px;
+   justify-content: center;
+   align-content: center;
+   text-align: center;
+   height: 6rem;
+   background-color: #f6f2f2;
+}
+.social{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    /* gap: 10px; */
+    justify-content: center;
+    align-items: baseline;
+    /* align-content: baseline; */
+}
+.social a{
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+.social a:hover{
+    text-decoration: underline;
+}
+.terms{
+    width: 100%;
+}
+.social i{
+    font-size: 20px;
+}
+.terms a{
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+}
+.terms a:hover{
+    text-decoration: underline;
+}
+
+.card{
+    border: none !important;
+    /* margin-right: 2rem; */
+    margin-top: 1rem;
+}
+.card-img-top{
+    border-radius: 10px;
+    width: 100% !important;
+    object-fit: cover;
+}
+.card-body{
+    padding: 0px;
+    margin: 10px;
+}
+.nav-link:hover{
+    text-decoration: underline;
+    font-size: 18px;
+}
+
+.link{
+    text-decoration: none;
+}
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.4;
+    background-color: white;
+}
+
+.show-image{
+    height: 40vh;
+}
+.buttons{
+    display: flex;
+}
+.btn{
+    background-color: #fe424d !important;
+    border: none;
+}

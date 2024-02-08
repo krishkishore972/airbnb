@@ -1,0 +1,42 @@
+<% layout("layoutss/boilerplate") %>
+
+    <body>
+        <form action="/edit/<%=item.id%>?_method=patch" method="post">
+            <div class="mt-2">
+                <label for="title" class="form-label">Title:</label>
+                <input type="text" value="<%= item.title %>" name="list[title]" class="form-control" id="title" required>
+                <div class="valid-feedback">Looks Good</div>
+                <div class="invalid-feedback">Title is Required</div>
+            </div>
+            <div class="mt-2">
+                <label for="description" class="form-label">Description:</label>
+                <textarea name="list[description]" id="description" cols="10" rows="10"class="form-control" required><%= item.description %></textarea>
+                    <div class="valid-feedback">Looks Good</div>
+                    <div class="invalid-feedback">Description is Required</div>
+            </div>
+            <div class="row">
+                <div class="col-3 mt-2">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" value="<%= item.price %>" name="list[price]" class="form-control" id="price" required>
+                    <div class="valid-feedback">Looks Good</div>
+                    <div class="invalid-feedback">Price is Required</div>
+                </div>
+                <div class="col-5 mt-3">
+                    <label for="location">Location:</label>
+                    <input type="text" value="<%= item.location %>" name="list[location]" class="form-control"
+                        id="location" required>
+                        <div class="valid-feedback">Looks Good</div>
+                        <div class="invalid-feedback">Location is Required</div>
+                </div>
+
+                <div class="col-3 mt-2">
+                    <label for="country" class="form-label">Country:</label>
+                    <input type="text" value="<%= item.country %>" name="list[country]" class="form-control"
+                        id="country" required>
+                        <div class="valid-feedback">Looks Good</div>
+                        <div class="invalid-feedback">Country is Required</div>
+                </div>
+            </div>
+            <button class="btn mt-3 col-1">EDIT</button>
+        </form>
+    </body>

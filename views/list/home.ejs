@@ -1,0 +1,21 @@
+<% layout("layoutss/boilerplate") %>
+<body>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+        <% for(res of result ) { %>
+            <a href="/show/<%= res.id %>" class="link">
+                <div class="card" style="width: 20rem;">
+                    <img src="<%= res.image.url %>" class="card-img-top" alt="none" style="height: 15rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text">
+                       <b> <%= res.title %></b>
+                        <br>
+                        &#8377;<%= res.price.toLocaleString("en-IN") %>/night
+                    </p>
+            
+                    </div>
+            </div>
+            </a>
+          <% } %>       
+    </div>
+</body>
