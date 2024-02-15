@@ -28,9 +28,15 @@ const listingschema=new schema({
     country:{
         type:String,
         required:true
-    }
+    },
+    reviews:[{
+        type:schema.Types.ObjectId,
+        ref:"Review"
+    }]
 });
 
 const listing=mongose.model("listing",listingschema);
 
 module.exports=listing;
+
+
