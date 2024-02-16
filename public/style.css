@@ -99,6 +99,7 @@ body{
 
 .show-image{
     height: 40vh;
+    border-radius: 10px; ;
 }
 .buttons{
     display: flex;

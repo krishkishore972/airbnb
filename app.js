@@ -14,7 +14,7 @@ const ejsmate = require("ejs-mate");
 app.engine('ejs', ejsmate);
 const wrapasync = require("./utils/wrapfn");
 const expresserror = require("./utils/error");
-const { listschema } = require("./schema");
+const { listschema, reviewschema } = require("./schema");
 const review = require("./models/review");
 
 
@@ -31,7 +31,7 @@ app.use((req, res, next) => {
     console.log("request recieved");
     next();
 })
-//validation for schema
+//validation for listing schema
 const validator = (req, res, next) => {
     let { error } = listschema.validate(req.body);
     console.log(error)
@@ -71,15 +71,27 @@ app.get("/show/:id", wrapasync(async (req, res) => {
     res.render("list/show.ejs", { item });
 }));
 
+const validator1 = (req, res, next) => {
+    let { error } = reviewschema.validate(req.body);
+    console.log(error)
+    if (error) {
+        let errmsg = error.details.map((el) => el.message).join(",");
+        console.log(errmsg);
+        throw new expresserror(400, errmsg);
+    } else {
+        next();
+    }
+}
+
 //Review route
-app.post("/:id/review", wrapasync(async (req, res) => {
+app.post("/show/:id/review",validator1,wrapasync(async (req, res) => {
     let list = await listing.findById(req.params.id);
     // console.log(list);
     let newreview = new review(req.body.review);
     // console.log(newreview);
-    await listing.reviews.push(newreview);
+    list.reviews.push(newreview);
     await newreview.save();
-    await listing.save();
+    await list.save();
 
 }))
 
