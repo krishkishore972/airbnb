@@ -1,7 +1,7 @@
 <% layout("layoutss/boilerplate") %>
 
     <body>
-        <form action="/edit/<%=item.id%>?_method=patch" method="post" novalidate class="needs-validation">
+        <form action="/listings/edit/<%=item.id%>?_method=patch" method="post" novalidate class="needs-validation">
             <div class="mt-2">
                 <label for="title" class="form-label">Title:</label>
                 <input type="text" value="<%= item.title %>" name="list[title]" class="form-control" id="title" required>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-body-light border-bottom fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home">
+      <a class="navbar-brand" href="/listings/home">
         <i class="fa-solid fa-hotel"></i>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
@@ -8,8 +8,17 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/home">Home</a>
-          <a class="nav-link" href="/add">Add Listings</a>
+          <a class="nav-link active" aria-current="page" href="/listings/home">Home</a>
+          <a class="nav-link" href="/listings/add">Add Listings</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <% if (!currentuser) { %>
+            <a href="/signup" class="nav-link">Sign up</a>
+            <a href="/login" class="nav-link">Log in</a>
+          <% } %>
+          <% if (currentuser) { %>
+            <a class="nav-link" href="/logout">Log out</a>
+          <% } %>
         </div>
       </div>
     </div>

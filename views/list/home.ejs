@@ -2,8 +2,8 @@
 <body>
     <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
         <% for(res of result ) { %>
-            <a href="/show/<%= res.id %>" class="link">
-                <div class="card" style="width: 20rem;">
+            <a href="/listings/show/<%= res.id %>" class="link">
+                <div class="card listing-card" style="width: 20rem;">
                     <img src="<%= res.image.url %>" class="card-img-top" alt="none" style="height: 15rem;">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
