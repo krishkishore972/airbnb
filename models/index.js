@@ -16,7 +16,7 @@ const listingschema=new schema({
         type:Object,
         default:{
             filename:"nothing",
-            url:"https://images.unsplash.com/photos/living-room-set-with-green-dumb-cane-plant-R-LK3sqLiBw",
+            url:"https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRyYXZlbHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
         },
         // set: (v)=> v===""? v:"https://unsplash.com/photos/white-and-grey-concrete-building-near-swimming-pool-under-clear-sky-during-daytime-2d4lAQAlbDA"  
     },
@@ -34,7 +34,11 @@ const listingschema=new schema({
     reviews:[{
         type:schema.Types.ObjectId,
         ref:"Review"
-    }]
+    }],
+    owner:{
+        type:schema.Types.ObjectId,
+        ref:"user"
+    }
 });
 
 listingschema.post("findOneAndDelete",async(listing)=>{

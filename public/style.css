@@ -151,7 +151,7 @@ body {
 .signup{
     /* border: 2px solid rgb(0, 166, 255); */
     width: 50rem;
-    height: 22rem;
+    height: 25.5rem;
     border-radius: 50px ;
     margin: 3rem auto;
     box-shadow: 2px 2px 4px 5px gray;
@@ -159,8 +159,11 @@ body {
 .login{
     /* border: 2px solid rgb(0, 166, 255); */
     width: 35rem;
-    height: 18rem;
+    height: 20rem;
     border-radius: 50px ;
     margin: 3rem auto;
     box-shadow: 2px 2px 4px 5px gray;
+}
+.flash{
+    margin: auto;
 }

@@ -4,13 +4,15 @@
         <div class="row">
             <div class="col-8 offset-2">
 
-                <h3>Listing Details:</h3>
+                <h3>Details:</h3>
             </div>
             <div class="card col-7 offset-2">
                 <img src="<%= item.image.url%>" alt="none" class="card-image-top show-image">
 
                 <div class="card-body">
                     <p class="card-text">
+                        <b>Created by:<%= item.owner.username %></b>
+                        <br>
                         <b>Title: <%= item.title %></b>
                         <br>
                         <b>Description: </b>

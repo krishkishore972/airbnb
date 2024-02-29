@@ -3,6 +3,7 @@ const { route } = require("./review");
 const router=express.Router();
 const User=require("../models/user");
 const passport = require("passport");
+const {saveurl}=require("../middleware")
 
 //signup
 
@@ -33,9 +34,16 @@ router.get("/login",(req,res)=>{
     res.render("users/login.ejs");
 })
 
-router.post("/login",passport.authenticate("local",{failureFlash:true,failureRedirect:"/login"}),(req,res)=>{
+router.post("/login",saveurl,passport.authenticate("local",{failureFlash:true,failureRedirect:"/login"}),(req,res)=>{
     req.flash("success","Welcome to airbnb");
-    res.redirect("/listings/home");
+    console.log(res.locals.currenturl);
+    if(res.locals.currenturl){
+        return res.redirect(res.locals.currenturl);
+    }
+    else
+    {
+        res.redirect("/listings/home");
+    }
 })
 //log out 
 router.get("/logout",(req,res)=>{
