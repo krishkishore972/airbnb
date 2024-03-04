@@ -167,3 +167,6 @@ body {
 .flash{
     margin: auto;
 }
+textarea{
+    resize: none;
+}

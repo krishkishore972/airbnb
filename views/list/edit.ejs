@@ -1,7 +1,7 @@
 <% layout("layoutss/boilerplate") %>
 
     <body>
-        <form action="/listings/edit/<%=item.id%>?_method=patch" method="post" novalidate class="needs-validation">
+        <form action="/listings/edit/<%=item.id%>?_method=patch" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
             <div class="mt-2">
                 <label for="title" class="form-label">Title:</label>
                 <input type="text" value="<%= item.title %>" name="list[title]" class="form-control" id="title" required>
@@ -13,6 +13,11 @@
                 <textarea name="list[description]" id="description" cols="10" rows="10"class="form-control" required><%= item.description %></textarea>
                     <div class="valid-feedback">Looks Good</div>
                     <div class="invalid-feedback">Description is Required</div>
+            </div>
+            <div class="col-5 mt-3">
+                <label for="image" class="form-label">Image</label>
+                <input type="file" id="image" class="form-control" name="list[image]">
+                <div class="invalid-feedback">Price is Required</div>
             </div>
             <div class="row">
                 <div class="col-3 mt-2">

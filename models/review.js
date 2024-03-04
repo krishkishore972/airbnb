@@ -13,6 +13,10 @@ let reviewschema=new schema({
     date:{
         type:Date,
         default:Date.now()
+    },
+    author:{
+        type: schema.Types.ObjectId,
+        ref:"user",
     }
 });
 const Review=mongose.model("Review",reviewschema);

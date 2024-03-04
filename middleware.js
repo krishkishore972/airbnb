@@ -1,7 +1,8 @@
 const {listschema}=require("./schema")
 const {reviewschema } = require("./schema");
 const expresserror = require("./utils/error");
-const Listing=require("./models/index")
+const Listing=require("./models/index");
+const Review = require("./models/review");
 
 //log in check
 module.exports.islogin=(req,res,next)=>{
@@ -53,8 +54,19 @@ module.exports.isauthorization=async (req,res,next)=>{
         req.flash("error","you are not the owner");
         return res.redirect(`/listings/show/${id}`);
     }
-    console.log(listing.owner._id);
-    console.log(res.locals.currentuser._id);
+    // console.log(listing.owner._id);
+    // console.log(res.locals.currentuser._id);
     next();
 }
- 
+
+//authorization of reviews
+module.exports.isauthor=async(req,res,next)=>{
+    let {id,reviewid}=req.params;
+    let review=await Review.findById(reviewid);
+    if(!res.locals.currentuser._id.equals(review.author._id)){
+        req.flash("error","you are not the owner");
+        return res.redirect(`/listings/show/${id}`);
+    }
+    console.log(review)
+    next();
+}
