@@ -8,16 +8,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/listings/home">Home</a>
-          <a class="nav-link" href="/listings/add">Add Listings</a>
+          <a class="nav-link active" aria-current="page" href="/listings/home">Explore</a>
         </div>
         <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/listings/add">Add Listings</a>
           <% if (!currentuser) { %>
-            <a href="/signup" class="nav-link">Sign up</a>
-            <a href="/login" class="nav-link">Log in</a>
+            <a href="/signup" class="nav-link"><b>Sign up</b></a>
+            <a href="/login" class="nav-link"><b>Log in</b></a>
           <% } %>
           <% if (currentuser) { %>
-            <a class="nav-link" href="/logout">Log out</a>
+            <a class="nav-link" href="/logout"><b>Log out</b></a>
           <% } %>
         </div>
       </div>

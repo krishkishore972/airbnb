@@ -14,10 +14,28 @@
                     <div class="valid-feedback">Looks Good</div>
                     <div class="invalid-feedback">Description is Required</div>
             </div>
-            <div class="col-5 mt-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="file" id="image" class="form-control" name="list[image]">
-                <div class="invalid-feedback">Price is Required</div>
+            <div class="row">
+                <div class="col-2">
+                    <img src="<%= originalimage %>" alt="image">
+                </div>
+                <div class="col-3 mt-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" id="image" class="form-control" name="list[image]">
+                    <div class="invalid-feedback">Price is Required</div>
+                </div>
+                <div class="col-2">
+                    <label for="cat">Category</label>
+                <select name="list[category]" id="cat" class="form-select" aria-label="Default select example">
+                <option value="mountain">Mounatain</option>
+                <option value="lakes">Lake</option>
+                <option value="farms">Farm</option>
+                <option value="castles">Castle</option>
+                <option value="arctic">Arcitc</option>
+                <option value="beach">Beach</option>
+
+
+            </select>
+                </div>
             </div>
             <div class="row">
                 <div class="col-3 mt-2">

@@ -5,7 +5,9 @@ module.exports.listschema=joi.object({
         description:joi.string().required(),
         price:joi.number().required().min(0),
         country:joi.string().required(),
-        location:joi.string().required()
+        location:joi.string().required(),
+        category:joi.string().required(),
+        image:joi.object().required(),
     }).required()
 });
 

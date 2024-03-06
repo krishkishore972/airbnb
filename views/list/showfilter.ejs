@@ -1,0 +1,76 @@
+<% layout("layoutss/boilerplate") %>
+
+    <body>
+        <div class="filters">
+            <a href="/listings/show/filter/castles">
+                <div class="filter">
+                    <div><i class="fa-brands fa-fort-awesome"></i></div>
+                    <!-- <div class="card-img-overlay"></div> -->
+                    <p> Castles</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/mountain">
+                <div class="filter">
+                    <div><i class="fa-solid fa-mountain-city"></i></div>
+                    <p>Mountain</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/lakes">
+                <div class="filter">
+                    <div><i class="fa-solid fa-water"></i></div>
+                    <p> Lakes</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/farms">
+                <div class="filter">
+                    <div><i class="fa-solid fa-cow"></i></div>
+                    <p> Farms</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/Trending">
+                <div class="filter">
+                    <div><i class="fa-solid fa-fire"></i></div>
+                    <p>Trending</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/beach">
+                <div class="filter">
+                    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+                    <p>Beach</p>
+                </div>
+            </a>
+            <a href="/listings/show/filter/arctic">
+                <div class="filter">
+                    <div><i class="fa-regular fa-snowflake"></i></div>
+                    <p>Arctic</p>
+                </div>
+            </a>
+            <div class="form-check-reverse form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Tax switch</label>
+            </div>
+        </div>
+        <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
+            <% for(res of result ) { %>
+                <a href="/listings/show/<%= res.id %>" class="link">
+                    <div class="card listing-card" style="width: 20rem;">
+                        <img src="<%= res.image.url %>" class="card-img-top" alt="none" style="height: 15rem;">
+                        <div class="card-img-overlay"></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <b>
+                                    <%= res.title %>
+                                </b>
+                                <br>
+                                <i class="price">&#8377;<%= res.price.toLocaleString("en-IN") %>/night</i>
+
+                                <i class="pricewithtax">&#8377;<%= (res.price+res.price*0.18).toLocaleString("en-IN") %>
+                                        /night</i>
+                            </p>
+
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+        </div>
+    </body>

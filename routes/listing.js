@@ -11,6 +11,9 @@ const upload = multer({storage });
 //home route
 router.get("/home", wrapasync(listcontroller.home));
 
+//filter routes
+router.get("/show/filter/:propertyname",wrapasync(listcontroller.filter));
+
 //show route
 router.get("/show/:id", wrapasync(listcontroller.show));
 

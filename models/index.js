@@ -42,6 +42,10 @@ const listingschema=new schema({
     owner:{
         type:schema.Types.ObjectId,
         ref:"user"
+    },
+    category:{
+        type:String,
+        enum:["lakes","mountain","castles","farms","arctic","beach"]
     }
 });
 

@@ -35,8 +35,8 @@ module.exports.editform=async (req, res) => {
     if(!item){
         req.flash("error","list is not exist or deleted");
         res.redirect(`/listings/show/${id}`);
-    }
-    res.render("list/edit.ejs", { item });
+    }    
+    res.render("list/edit.ejs", { item,originalimage });
 }
 
 //updating after edit
@@ -64,8 +64,9 @@ module.exports.add=async (req, res) => {
     let url=req.file.path;
     let filename=req.file.filename;
     // console.log(req.file);
-    const List = new listing(req.body.list);
     // console.log(req.body.list);
+    const List = new listing(req.body.list);
+    
     List.owner=req.user._id;
     List.image.url=url;
     List.image.filename=filename;
@@ -82,4 +83,18 @@ module.exports.delete=async (req, res) => {
     // console.log(deleted);
     req.flash("success","List is deleted Successfully");
     res.redirect("/listings/home");
+}
+
+module.exports.filter=async(req,res)=>{
+    let {propertyname}=req.params;
+    let result=await listing.find({category:`${propertyname}`});
+    // console.log(result);
+    if(result.length>0){
+    res.render("list/showfilter.ejs",{result});
+    }
+    else
+    {
+        req.flash("error","No Listing available for this filter");
+        res.redirect("/listings/home");
+    }
 }
