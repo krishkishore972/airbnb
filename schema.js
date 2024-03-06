@@ -7,7 +7,7 @@ module.exports.listschema=joi.object({
         country:joi.string().required(),
         location:joi.string().required(),
         category:joi.string().required(),
-        image:joi.object().required(),
+        image:joi.string().allow("",null),
     }).required()
 });
 

@@ -16,6 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 const ejsmate = require("ejs-mate");
 app.engine('ejs', ejsmate);
 const session=require("express-session");
+const MongoStore = require('connect-mongo').default;
 const flash=require("connect-flash");
 const passport=require("passport");
 const localstrategy=require("passport-local");
@@ -26,8 +27,11 @@ const User=require("./routes/user");
 const Review=require("./routes/review");
 const Listing=require("./routes/listing");
 
+
+let mongo_url="mongodb://127.0.0.1:27017/airbnb";
+let db_url=process.env.ATLAS_DB;
 const main = async () => {
-    await mongose.connect("mongodb://127.0.0.1:27017/airbnb");
+    await mongose.connect(db_url);
 }
 main().then(() => {
     console.log("connected to db");
@@ -35,7 +39,19 @@ main().then(() => {
     console.log(err)
 })
 
+const store=MongoStore.create({
+    mongourl:db_url,
+    crypto:{
+        secret:"mysecretcode",
+    },
+    touchafter: 24*3600,
+})
+
+store.on("error",()=>{
+    console.log("error occured",err);
+})
 const sessionoptions={
+    store,
     secret:"mysecretcode",
     resave:false,
     saveUninitialized:true,
