@@ -16,7 +16,7 @@ app.set("views", path.join(__dirname, "views"));
 const ejsmate = require("ejs-mate");
 app.engine('ejs', ejsmate);
 const session=require("express-session");
-const MongoStore = require('connect-mongo').default;
+const MongoStore = require('connect-mongo');
 const flash=require("connect-flash");
 const passport=require("passport");
 const localstrategy=require("passport-local");
@@ -40,9 +40,9 @@ main().then(() => {
 })
 
 const store=MongoStore.create({
-    mongourl:db_url,
+    mongoUrl:db_url,
     crypto:{
-        secret:"mysecretcode",
+        secret:process.env.SECRET,
     },
     touchafter: 24*3600,
 })
@@ -51,8 +51,8 @@ store.on("error",()=>{
     console.log("error occured",err);
 })
 const sessionoptions={
-    store,
-    secret:"mysecretcode",
+    store:store,
+    secret:process.env.SECRET,
     resave:false,
     saveUninitialized:true,
     cookie:{
